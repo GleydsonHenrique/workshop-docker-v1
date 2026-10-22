@@ -48,5 +48,4 @@ o aluno deve ver a landing page do workshop.
 
 ## 📌 Observação
 
-Este material é um rascunho de treinamento. Antes de aplicar com um cliente,
-recomenda-se revisão com o time técnico e comercial da Hub4IT.
+Este material é um rascunho de treinamento. Antes de aplicar.
