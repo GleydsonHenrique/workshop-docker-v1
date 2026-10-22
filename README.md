@@ -1,6 +1,6 @@
 # 🐳 Workshop Docker — do Dockerfile ao Container Apache
 
-Repositório-modelo do laboratório prático de Docker da **Hub4IT**.
+Repositório-modelo do laboratório prático de Docker do **Helionelys**.
 
 Seu objetivo é simples: **escrever um `Dockerfile`** que empacote uma landing page
 estática em uma imagem com o servidor **Apache (httpd)**, construir essa imagem e
