@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop Docker · Hub4IT</title>
+  <meta name="description" content="Laboratório prático de Docker — do Dockerfile ao container Apache no ar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232496ED'/%3E%3Crect x='24' y='46' width='16' height='16' fill='white'/%3E%3Crect x='42' y='46' width='16' height='16' fill='white'/%3E%3Crect x='60' y='46' width='16' height='16' fill='white'/%3E%3Crect x='42' y='28' width='16' height='16' fill='white'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ======================= HERO ======================= -->
+  <header class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <span class="status">
+          <span class="status__dot"></span>
+          Container no ar — Apache respondendo
+        </span>
+
+        <h1 class="hero__title">
+          Do <span class="hl">Dockerfile</span><br />
+          ao container em pé.
+        </h1>
+
+        <p class="hero__lead">
+          Se você está lendo isto, seu container <strong>Apache</strong> subiu e
+          está servindo esta página. Parabéns — a primeira imagem foi construída
+          por você. Bem-vindo ao laboratório prático de Docker da Hub4IT.
+        </p>
+
+        <div class="chips">
+          <span class="chip">Apache httpd 2.4</span>
+          <span class="chip">Porta 80 → 8080</span>
+          <span class="chip">GitHub Codespaces</span>
+        </div>
+      </div>
+
+      <!-- Pilha de "containers" desenhada em CSS -->
+      <div class="stack" aria-hidden="true">
+        <div class="stack__ship"></div>
+        <div class="box box--a">httpd</div>
+        <div class="box box--b">site</div>
+        <div class="box box--c">COPY</div>
+        <div class="box box--d">RUN</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= O QUE ACONTECEU ================= -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section__title">O que você acabou de fazer</h2>
+        <p class="section__sub">Três comandos, e sua aplicação já está servindo na rede. É isso que o Docker resolve.</p>
+
+        <div class="flow">
+          <div class="flow__item">
+            <code>docker build</code>
+            <p>Leu o <strong>Dockerfile</strong>, pegou a imagem base do Apache e copiou os arquivos do site para dentro de uma imagem nova.</p>
+          </div>
+          <div class="flow__arrow">→</div>
+          <div class="flow__item">
+            <code>docker run</code>
+            <p>Criou um <strong>container</strong> a partir da imagem e mapeou a porta interna do Apache para a sua máquina.</p>
+          </div>
+          <div class="flow__arrow">→</div>
+          <div class="flow__item">
+            <code>abrir no navegador</code>
+            <p>O Apache entregou os arquivos de <code>htdocs</code> — e esta página apareceu. 🎉</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= AGENDA ================= -->
+    <section class="section section--alt">
+      <div class="wrap">
+        <h2 class="section__title">O que você vai praticar</h2>
+        <ul class="manifest">
+          <li><span class="manifest__mark">✓</span> Escrever um <strong>Dockerfile</strong> do zero, linha por linha</li>
+          <li><span class="manifest__mark">✓</span> Entender <strong>imagem base</strong>, camadas e o que cada instrução faz</li>
+          <li><span class="manifest__mark">✓</span> Copiar arquivos para dentro da imagem com <code>COPY</code></li>
+          <li><span class="manifest__mark">✓</span> Construir a imagem com <code>docker build</code></li>
+          <li><span class="manifest__mark">✓</span> Rodar e mapear portas com <code>docker run -p</code></li>
+          <li><span class="manifest__mark">✓</span> Testar tudo direto no <strong>GitHub Codespaces</strong>, sem instalar nada</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= PASSO A PASSO ================= -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section__title">Como rodar o laboratório</h2>
+        <p class="section__sub">Siga na ordem. Cada passo depende do anterior.</p>
+
+        <ol class="steps">
+          <li class="step">
+            <h3 class="step__title">Abra no Codespaces</h3>
+            <p>No GitHub, clique em <strong>Code → Codespaces → Create codespace</strong>. O ambiente já vem com Docker pronto.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Complete o Dockerfile</h3>
+            <p>Abra o arquivo <code>Dockerfile</code> na raiz e preencha os <code>TODO</code>s. Dica: a imagem oficial do Apache serve a pasta <code>/usr/local/apache2/htdocs/</code>.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Construa a imagem</h3>
+            <p>No terminal do Codespaces:</p>
+            <pre><code>docker build -t workshop-apache .</code></pre>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Rode o container</h3>
+            <p>Suba o container mapeando a porta 80 do Apache para a 8080:</p>
+            <pre><code>docker run -d -p 8080:80 workshop-apache</code></pre>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Abra a porta 8080</h3>
+            <p>Na aba <strong>Ports</strong> do Codespaces, clique no ícone de globo da porta <strong>8080</strong>. Esta página deve aparecer. Fim do desafio. 🐳</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <span class="footer__brand">Hub4IT</span>
+        <span class="footer__tag">Consultoria de TI · Recife/PE</span>
+      </div>
+      <p class="footer__note">Laboratório prático de Docker — material de treinamento.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

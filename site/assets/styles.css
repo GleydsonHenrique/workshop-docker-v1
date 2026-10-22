@@ -1,0 +1,315 @@
+/* ============================================================
+   Workshop Docker · Hub4IT — estilos da landing page
+   Tema: "terminal portuário" — navy profundo, azul Docker,
+   com uma pilha de containers desenhada em CSS no hero.
+   ============================================================ */
+
+:root {
+  --navy:        #0a1a2f;
+  --navy-deep:   #06111f;
+  --surface:     #0f2440;
+  --surface-2:   #132d4f;
+  --line:        #1e3a5f;
+  --docker:      #2496ed;
+  --cyan:        #4fd1e0;
+  --amber:       #f5a623;
+  --text:        #e8eef5;
+  --muted:       #8ca3bc;
+  --radius:      14px;
+  --wrap:        1040px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+code {
+  font-family: "Space Grotesk", ui-monospace, "SF Mono", Menlo, monospace;
+  background: rgba(36, 150, 237, 0.14);
+  color: var(--cyan);
+  padding: 0.1em 0.42em;
+  border-radius: 6px;
+  font-size: 0.92em;
+}
+
+pre {
+  background: var(--navy-deep);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--docker);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  overflow-x: auto;
+}
+pre code {
+  background: none;
+  color: var(--text);
+  padding: 0;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ----------------------------- HERO ----------------------------- */
+.hero {
+  background:
+    radial-gradient(1100px 500px at 80% -10%, rgba(36,150,237,0.18), transparent 60%),
+    linear-gradient(180deg, var(--navy-deep), var(--navy));
+  border-bottom: 1px solid var(--line);
+  padding: 72px 24px 88px;
+}
+.hero__inner {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero__copy { max-width: 540px; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  background: rgba(79, 209, 224, 0.1);
+  border: 1px solid rgba(79, 209, 224, 0.3);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 26px;
+}
+.status__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 0 rgba(79, 209, 224, 0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(79,209,224,0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(79,209,224,0); }
+  100% { box-shadow: 0 0 0 0 rgba(79,209,224,0); }
+}
+
+.hero__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.hl { color: var(--docker); }
+
+.hero__lead {
+  margin-top: 20px;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+.hero__lead strong { color: var(--text); font-weight: 600; }
+
+.chips {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 7px 13px;
+  border-radius: 8px;
+}
+
+/* ----- pilha de containers (CSS art) ----- */
+.stack {
+  position: relative;
+  height: 280px;
+}
+.stack__ship {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 26px;
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 4px 4px 10px 10px;
+}
+.box {
+  position: absolute;
+  width: 112px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: #06111f;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.3);
+  background-image: repeating-linear-gradient(
+    90deg, rgba(0,0,0,0.08) 0 2px, transparent 2px 14px);
+}
+.box--a { background-color: var(--docker); left: 20px;  bottom: 26px; }
+.box--b { background-color: var(--cyan);   left: 146px; bottom: 26px; }
+.box--c { background-color: var(--amber);  left: 56px;  bottom: 84px; }
+.box--d { background-color: #7cc4f5;       left: 110px; bottom: 142px; }
+
+/* --------------------------- SEÇÕES --------------------------- */
+.section { padding: 76px 0; }
+.section--alt {
+  background: var(--navy-deep);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.section__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.section__sub {
+  color: var(--muted);
+  margin-top: 10px;
+  max-width: 560px;
+}
+
+/* ----- fluxo build → run → abrir ----- */
+.flow {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+.flow__item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--docker);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+}
+.flow__item code { display: inline-block; margin-bottom: 8px; font-size: 0.9rem; }
+.flow__item p { color: var(--muted); font-size: 0.94rem; }
+.flow__item strong { color: var(--text); }
+.flow__arrow {
+  display: flex;
+  align-items: center;
+  color: var(--docker);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ----- manifesto / checklist ----- */
+.manifest {
+  margin-top: 34px;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+  max-width: 760px;
+}
+.manifest li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.04rem;
+  color: var(--text);
+}
+.manifest li:last-child { border-bottom: none; }
+.manifest__mark {
+  flex: none;
+  color: var(--cyan);
+  font-weight: 700;
+}
+.manifest strong { font-weight: 600; }
+
+/* ----- passos numerados ----- */
+.steps {
+  margin-top: 36px;
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 16px;
+}
+.step {
+  counter-increment: step;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 24px 22px 76px;
+}
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 22px; top: 22px;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  color: #06111f;
+  background: var(--docker);
+  border-radius: 10px;
+}
+.step__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.step p { color: var(--muted); }
+.step strong { color: var(--text); }
+
+/* --------------------------- RODAPÉ --------------------------- */
+.footer {
+  background: var(--navy-deep);
+  border-top: 1px solid var(--line);
+  padding: 34px 0;
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer__brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--docker);
+}
+.footer__tag { color: var(--muted); font-size: 0.86rem; margin-left: 12px; }
+.footer__note { color: var(--muted); font-size: 0.86rem; }
+
+/* --------------------------- RESPONSIVO --------------------------- */
+@media (max-width: 860px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 40px; }
+  .stack { height: 230px; max-width: 320px; }
+  .flow { grid-template-columns: 1fr; }
+  .flow__arrow { transform: rotate(90deg); justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status__dot { animation: none; }
+  html { scroll-behavior: auto; }
+}

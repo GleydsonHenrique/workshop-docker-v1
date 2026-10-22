@@ -1,0 +1,7 @@
+# Nada aqui precisa entrar na imagem
+.git
+.github
+.devcontainer
+docs
+README.md
+*.md
